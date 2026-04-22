@@ -107,7 +107,7 @@ public class ArchivoPersona {
         int contador=0;
         try{
             archivo.seek(tamNom+tamDni);
-            while (archivo.getFilePointer()+(tamNom+tamDni)<=archivo.length()){
+            while (archivo.getFilePointer()<archivo.length()){
                 int valorAltura=archivo.readInt();
                 if (valorAltura!=0) {
                     suma+=valorAltura;
