@@ -43,8 +43,10 @@ public class Main {
                 break;
             case 4:
                 System.out.println("Promedio de altura: " + gestor.promedio());
+                break;
             case 5:
                 alturaMayorA(gestor);
+                break;
             default:
                 System.out.println("Opción incorrecta");
                 break;
