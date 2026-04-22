@@ -1,4 +1,3 @@
-package Ejercicio_3;
 import java.util.Scanner;
 
 public class Main {
@@ -8,21 +7,24 @@ public class Main {
         iniciar(gestor,sc);
     }
 
-    public static void menu(Scanner sc){
+    public static void menu(){
         System.out.println("--SISTEMA DE ARCHIVO DE PERSONAS--");
         System.out.println("Elija su opción");
         System.out.println("1. Agregar persona");
         System.out.println("2. Mostrar lista de personas");
+        System.out.println("3. Buscar por DNI");
+        System.out.println("4. Calcular el promedio de altura");
+        System.out.println("5. Generar un archivo con las personas con altura mayor a 160cm");
         System.out.println("0. Cerrar");
     }
 
     public static void iniciar(ArchivoPersona gestor, Scanner sc){
-        menu(sc);
+        menu();
         int opcion = sc.nextInt();
         sc.nextLine();
         while (opcion!=0) {
             opciones(opcion,gestor,sc);
-            menu(sc);
+            menu();
             opcion = Integer.parseInt(sc.nextLine());
         }
         gestor.cerrar();
@@ -36,6 +38,13 @@ public class Main {
             case 2:
                 gestor.listar();
                 break;
+            case 3:
+                buscarDNI(sc,gestor);
+                break;
+            case 4:
+                System.out.println("Promedio de altura: " + gestor.promedio());
+            case 5:
+                alturaMayorA(gestor);
             default:
                 System.out.println("Opción incorrecta");
                 break;
@@ -52,6 +61,15 @@ public class Main {
         Persona p = new Persona(nombre, dni, altura);
         gestor.Agregar(p);
         System.out.println("Persona agregada exitosamente");
+    }
+
+    public static void buscarDNI(Scanner sc, ArchivoPersona gestor){
+        System.out.println("Ingrese el DNI: ");
+        gestor.mostrar(gestor.buscar(Integer.parseInt(sc.nextLine())));;
+    }
+
+    public static void alturaMayorA(ArchivoPersona gestor){
+        gestor.comprobarAltura(gestor.alturaMayorA());
     }
 
 
