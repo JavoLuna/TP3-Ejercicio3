@@ -8,7 +8,7 @@ public class ArchivoPersona {
     private final static int tamNom=17;
     private final static int tamDni=4;
     private final static int tamAlt=4;
-    private final static int tamTotal=25;
+    private final static int tamTotal=tamNom+tamDni+tamAlt;
 
     public ArchivoPersona() {
         try {
